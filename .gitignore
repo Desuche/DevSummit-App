@@ -1,0 +1,49 @@
+# Build generated files
+build/
+DerivedData/
+*.xcuserstate
+
+# Xcode specific files
+*.xcworkspace
+*.xcuserdatad/
+*.xcodeproj/project.xcworkspace/
+*.xcodeproj/xcuserdata/
+*.xcodeproj/xcuserdata/*.xcuserdatad
+
+# Swift Package Manager
+.swiftpm/
+Packages/
+*.xcodeproj/project.xcworkspace/xcuserdata/*.xcuserdatad
+
+# CocoaPods
+Pods/
+Podfile.lock
+
+# Carthage
+Carthage/Build/
+Carthage/Checkouts/
+
+# Fastlane
+fastlane/report.xml
+fastlane/Preview.html
+fastlane/screenshots
+fastlane/test_output
+
+# Archives
+*.xcarchive
+
+# User-specific files
+*.swp
+*.swo
+*.DS_Store
+*.idea/
+*.env
+
+# App specific files
+*.app
+*.app.dSYM
+*.ipa
+
+# Others
+*.log
+*.lock
