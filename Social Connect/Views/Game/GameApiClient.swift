@@ -58,13 +58,20 @@ class GameApiClient: ObservableObject {
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        let body: [String: Any] = ["inp": ["message": message]]
+        
+        let body: [String: Any] = ["message": message]
         request.httpBody = try? JSONSerialization.data(withJSONObject: body)
 
         URLSession.shared.dataTaskPublisher(for: request)
             .map(\.data)
+            .handleEvents(receiveOutput: { data in
+                if let jsonString = String(data: data, encoding: .utf8) {
+                    print("Raw response: \(jsonString)")
+                }
+            })
             .decode(type: ApiResponse.self, decoder: JSONDecoder())
             .sink(receiveCompletion: { completionResult in
+                print(completionResult)
                 switch completionResult {
                 case .finished:
                     break
@@ -72,6 +79,7 @@ class GameApiClient: ObservableObject {
                     completion(.failure(error))
                 }
             }, receiveValue: { response in
+                print(response)
                 completion(.success(response.assistant))
             })
             .store(in: &cancellables)
@@ -86,5 +94,5 @@ struct NewGameResponse: Decodable {
 
 struct ApiResponse: Decodable {
     let assistant: String
-    let level: Int
+    let llm_used: Bool
 }
