@@ -52,7 +52,7 @@ class GameObjectDetector: ObservableObject {
                 print("No model results")
                 return []
             }
-            return [1234, 1234, 1234, 1122]
+            return [3212, 2213, 1234, 3343 , 3213, 1234, 1121,1234, 1122]
             
             
             
