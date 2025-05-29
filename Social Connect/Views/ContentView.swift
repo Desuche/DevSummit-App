@@ -35,6 +35,11 @@ struct ContentView: View {
                         Image(systemName: "person.2.circle")
                         Text("Mentors")
                     }
+                GameView()
+                    .tabItem{
+                        Image(systemName: "gamecontroller")
+                        Text("Game Hub")
+                    }
                 SettingsView()
                     .tabItem{
                         Image(systemName: "gear")

@@ -87,7 +87,7 @@ struct VideoListView: View {
             .searchable(text: $query, prompt: "Search for a tutorial")
             .onChange(of: query, search)
             .navigationBarTitleDisplayMode(.automatic)
-            .navigationTitle("Social Connect")
+            .navigationTitle("Senior Connect")
             .overlay { // TODO only for mentors
                 VStack {
                     Spacer()
